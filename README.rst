@@ -1,7 +1,9 @@
 Project Scope - CS50.12
 =======================
 
-Webiste has been setup to be render `VALID` HTML5 on all pages and has been verified by a third party.
+Website == http://marriedtoagringo.com/
+
+This has been setup to be render `VALID` HTML5 on all pages and has been verified by a third party.
 
 
 HTML5 Page Structure
