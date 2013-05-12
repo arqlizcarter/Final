@@ -1,0 +1,38 @@
+CREATE TABLE `shoutbox`(
+        `id` int(5) NOT NULL auto_increment,
+        `date` timestamp NOT NULL default CURRENT_TIMESTAMP,
+        `name` varchar(25) NOT NULL,
+        `ufrom` varchar(50) NOT NULL,
+        `sfrom` varchar(50) NOT NULL,
+        `pfrom` varchar(50) NOT NULL,
+        `ttog` varchar(50) NOT NULL,
+        PRIMARY KEY (`id`),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `geolocation`(
+        `id` int(5) NOT NULL auto_increment,
+        `user_id` int(5),
+        `city` varchar(100) NOT NULL,
+        PRIMARY KEY (`id`),
+        CONSTRAINT `city` FOREIGN KEY (`user_id`)
+                REFERENCES `shoutbox` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `comments`(
+        `id` int(5) NOT NULL auto_increment,
+        `user_id` int(5),
+        `message` text(1000) NOT NULL,
+        PRIMARY KEY (`id`),
+        CONSTRAINT `id` FOREIGN KEY (`user_id`)
+                REFERENCES `shoutbox` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `countries` (
+  `id` int(6) NOT NULL auto_increment,
+  `value` varchar(250) NOT NULL default '',
+  PRIMARY KEY  (`id`),
+  KEY (`value`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=243 ;
